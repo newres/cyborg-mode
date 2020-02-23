@@ -1,0 +1,81 @@
+
+#+title: Cyborg Agenda
+#+description: An introduction to org mode by creating an agenda for the superhero Cyborg.
+
+* Notes
+
+* Today's Schedule
+
+* Org Mode Commands and their Spacemacs support
+  
+** Keywords
+Inserting snippets such as title can be done in Spacemacs by `space i s' and
+searching for things such as title and description. This creates the forms such
+as `#+title:` and `#+description`.
+
+** Headlines
+Headlines are created by a starting a line with any number of asterisk `*`. The
+number of asterisks indicates the level of nesting. This way tree structures
+could be created.
+
+** Text Formatting
+Formatting the text can be done using the `space m x` commands. 
+*Bolding* text can be done by enclosing it between two asterisk.
+/Italics/ text can be done by enclosing it between slashes.
++Strike-through+ text can be done by enclosing it between plus signs. 
+_Underlined_ text can be done by enclosing it between underscores (_).
+=Verbatim= text can be done by enclosing it between equality signs.
+~Code~ text can done by enclosing it between tildes (~). 
+
+** Tree Structure Editing and Navigation
+One can use the major mode commands to edit and navigate such tree structures.
+For example `space m i s` would insert a new sub-tree/heading. A sibling heading
+can be inserted by `space m i h`. Folding and unfolding can be done by the `tab`
+key, when selecting a specific heading. It can also be done globally by pressing
+`shift Tab`. Focusing on the sub-tree can be done by `space m s n`, to hide all the other parts of the tree.
+This can be reversed by `space m s N` to widen the view of the tree again.
+
+** Blocks
+Blocks are specific chunks of the org document that are used for a variety of purposes. 
+Examples are given in a block such as: 
+
+#+begin_example
+An Example.
+#+end_example
+
+
+Code fragments can be given in a block such as well. 
+
+#+begin_src python
+print("This can be done in .org mode");
+#+end_src
+
+** Lists
+Unnumbered lists can be given using - as such:
+
+#+begin_example
+- An item
+- Another item
+#+end_example
+
+while numbered lists can be given with a number followed by a dot:
+#+begin_example
+1. First item
+2. Second item
+#+end_example
+
+Description lists allow an unordered list item to be followed by a description:
+#+begin_example
+- An item :: good item
+- Another item :: great item
+#+end_example
+
+
+#+end_example
+
+** Links
+   
+* Sources
+  
+
+
