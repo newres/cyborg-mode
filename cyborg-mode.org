@@ -1,39 +1,139 @@
-
 #+title: Cyborg Agenda
-#+description: An introduction to org mode by creating an agenda for the superhero Cyborg.
+#+description: An introduction to org mode by creating an org document for information on the superhero Cyborg.
 
-* Notes
+* Biography
 
-* Today's Schedule
+Vic Stone was a high school athlete when a tragic accident nearly killed him and
+destroyed most of this body. His father, Dr. Silas Stone, used his scientific
+knowledge and advanced technology to save his life by augmenting him with machine parts.
+Living now as a cyborg, a being with both organic and machine parts, he is now has super strength, increased durability and a control over advanced technology and weaponry.
+Although he continues to struggle with his newfound status as both man and machine, he uses his newfound powers as a superhero.
+ 
+* Powers
+  
+- super strength
+- advanced technology,
+- instant weaponry
+- genius-level intellect
+- control over technology
+- computer hacking
+- durability
+- teleportation
+
+* Affiliations
+
+1. Justice League
+2. Teen Titans
+3. Doom Patrol
+
+* Villains
+
+- Lex Luthor
+- Deathstroke
+-
+* Cyborg's Schedule
+
+*** TODO: JLA Meeting
+    SCHEDULED: <2024-08-02>
+    Something _must_ be done about *Lex Luthor*. He seems to be planning an attack on /Metropolis/ with the help of *Deathstroke*. 
+*** TODO: Upgrade Equipment
+    SCHEDULED: <2024-06-01>
+    Enhance arm cannon.
+    
+* Weapon Damage Calculator
+  
+
+#+NAME: wdc
+#+BEGIN_SRC python :results output
+  arm_cannon = {"name": "Arm Cannon", "power": 8}
+  reinforced_door = {"name": "Reinforced Door", "armor": 3}
+
+  def wdc(weapon, target):
+    damage = weapon["power"] - target["armor"]
+    if damage<0:
+      return 0
+    else: 
+      return damage
+
+  damage_done = wdc(arm_cannon, reinforced_door)
+  print("Using the weapon " + arm_cannon["name"] + " with " + str(arm_cannon["power"]) + " power,")
+  print("against the target " + reinforced_door["name"] + " with " + str(reinforced_door["armor"]) + " armor,")
+  print("results in " + str(damage_done) + " damage.")
+#+END_SRC
+
+
+
+#+RESULTS: wdc
+: Using the weapon Arm Cannon with 8 power,
+: against the target Reinforced Door with 3 armor,
+: results in 5 damage.
 
 * Org Mode Commands and their Spacemacs support
+  :PROPERTIES:
+  :CUSTOM_ID: Commands 
+  :END:
   
 ** Keywords
-Inserting snippets such as title can be done in Spacemacs by `space i s' and
-searching for things such as title and description. This creates the forms such
-as `#+title:` and `#+description`.
+   
+Keywords follow the syntax of #+KEY: VALUE and are used for a variety of
+purposes within an org document, such as denoting a title and description using
+the keys`#+title:` and `#+description` respectively.
+
+*** Spacemacs guide 
+    
+Inserting snippets for commonly used keywords such as title can be done in
+Spacemacs by `space i s' and searching for the keys such as title and
+description. This creates the forms such as `#+title:` and `#+description`.
 
 ** Headlines
+
+Headlines are the outlined headings in an org document.
+
 Headlines are created by a starting a line with any number of asterisk `*`. The
 number of asterisks indicates the level of nesting. This way tree structures
 could be created.
 
+*** Spacemacs Guide
+Headlines at the same level can be inserted with the command org-insert-heading,
+`space m i h`, while a headline at a sub level can be inserted with the command
+insert org-insert-subheading `space m i s`. 
+
+** Drawers
+   A drawer is a container that allows you to hide information that you would
+   normally do not want to see in an outline. Example of these is meta-data and
+   clocked times.
+   
+   An example drawer is as follows:
+   :LOGBOOK:
+   - Note taken on [2009-09-16 Wed 04:02]
+   :END:
+  
+*** Spacemacs Guide 
+Drawers can be inserted by using the org-insert-drawer command `space m i d`.
+
+** Properties
 ** Text Formatting
-Formatting the text can be done using the `space m x` commands. 
 *Bolding* text can be done by enclosing it between two asterisk.
 /Italics/ text can be done by enclosing it between slashes.
 +Strike-through+ text can be done by enclosing it between plus signs. 
 _Underlined_ text can be done by enclosing it between underscores (_).
 =Verbatim= text can be done by enclosing it between equality signs.
 ~Code~ text can done by enclosing it between tildes (~). 
+*** Spacemacs Guide 
+ Formatting the text can be done using the `space m x` commands. 
 
 ** Tree Structure Editing and Navigation
-One can use the major mode commands to edit and navigate such tree structures.
-For example `space m i s` would insert a new sub-tree/heading. A sibling heading
-can be inserted by `space m i h`. Folding and unfolding can be done by the `tab`
-key, when selecting a specific heading. It can also be done globally by pressing
-`shift Tab`. Focusing on the sub-tree can be done by `space m s n`, to hide all the other parts of the tree.
-This can be reversed by `space m s N` to widen the view of the tree again.
+   
+The various elements in an org document, such as headlines, can be organized and navigated as a tree structure.  
+
+*** Spacemacs Guide 
+    One can use the major mode commands to edit and navigate
+such tree structures. For example `space m i s` would insert a new
+sub-tree/heading. A sibling heading can be inserted by `space m i h`. Folding
+and unfolding can be done by the `tab` key, when selecting a specific heading.
+It can also be done globally by pressing `shift Tab`. Focusing on the sub-tree
+can be done by `space m s n`, to hide all the other parts of the tree. This can
+be reversed by `space m s N` to widen the view of the tree again.
 
 ** Blocks
 Blocks are specific chunks of the org document that are used for a variety of purposes. 
@@ -46,36 +146,43 @@ An Example.
 
 Code fragments can be given in a block such as well. 
 
-#+begin_src python
-print("This can be done in .org mode");
+#+begin_src python :results output 
+  print("This can be done in .org mode");
 #+end_src
 
-** Lists
-Unnumbered lists can be given using - as such:
+#+RESULTS:
+: This can be done in .org mode
 
-#+begin_example
+** Lists
+Unnumbered lists can be given using - or + as such:
+
 - An item
 - Another item
-#+end_example
 
 while numbered lists can be given with a number followed by a dot:
-#+begin_example
+
 1. First item
 2. Second item
-#+end_example
 
 Description lists allow an unordered list item to be followed by a description:
-#+begin_example
+
 - An item :: good item
 - Another item :: great item
-#+end_example
 
+Checkbox lists allow to mark specific items with a checkbox mark. Checkboxes can
+be added by inserting [] right after starting an unordered list item.
+- [1/2] Checkbox
+  - [X] Marked
+  - [ ] Unmarked
 
-#+end_example
-
+** Dates and Times
 ** Links
-   
+  Links are given in the format of =[[Link]][Description]=, where the
+  description is optional. One can have internal links towards [[Headlines]] by
+  using the name of the headline as a link. URLs can be linked as well, such as the  
+  [[https://orgmode.org/guide/index.html]][ORG Mode Compact Guide] that was used to help write this document.
 * Sources
+  [[https://orgmode.org/guide/index.html]][ORG Mode Compact Guide]
+  [[https://www.youtube.com/watch?v=PVsSOmUB7ic]][Learn Emacs Org Mode: Spacemacs
+  Intro Tutorial]
   
-
-
