@@ -2,15 +2,12 @@
 #+description: An introduction to org mode by creating an org document for information on the superhero Cyborg.
 
 * Biography
-
 Vic Stone was a high school athlete when a tragic accident nearly killed him and
 destroyed most of this body. His father, Dr. Silas Stone, used his scientific
 knowledge and advanced technology to save his life by augmenting him with machine parts.
 Living now as a cyborg, a being with both organic and machine parts, he is now has super strength, increased durability and a control over advanced technology and weaponry.
 Although he continues to struggle with his newfound status as both man and machine, he uses his newfound powers as a superhero.
- 
 * Powers
-  
 - super strength
 - advanced technology,
 - instant weaponry
@@ -19,30 +16,23 @@ Although he continues to struggle with his newfound status as both man and machi
 - computer hacking
 - durability
 - teleportation
-
-* Affiliations
-
+* Relationships
+** Team Affiliations
 1. Justice League
 2. Teen Titans
 3. Doom Patrol
-
-* Villains
-
+** Villains
 - Lex Luthor
 - Deathstroke
--
 * Cyborg's Schedule
-
-*** TODO: JLA Meeting
+*** TODO Justice League Meeting
     SCHEDULED: <2024-08-02>
     Something _must_ be done about *Lex Luthor*. He seems to be planning an attack on /Metropolis/ with the help of *Deathstroke*. 
-*** TODO: Upgrade Equipment
+*** TODO Upgrade Equipment
     SCHEDULED: <2024-06-01>
     Enhance arm cannon.
     
 * Weapon Damage Calculator
-  
-
 #+NAME: wdc
 #+BEGIN_SRC python :results output
   arm_cannon = {"name": "Arm Cannon", "power": 8}
@@ -60,19 +50,14 @@ Although he continues to struggle with his newfound status as both man and machi
   print("against the target " + reinforced_door["name"] + " with " + str(reinforced_door["armor"]) + " armor,")
   print("results in " + str(damage_done) + " damage.")
 #+END_SRC
-
-
-
 #+RESULTS: wdc
 : Using the weapon Arm Cannon with 8 power,
 : against the target Reinforced Door with 3 armor,
 : results in 5 damage.
-
 * Org Mode Commands and their Spacemacs support
   :PROPERTIES:
   :CUSTOM_ID: Commands 
   :END:
-  
 ** Keywords
    
 Keywords follow the syntax of #+KEY: VALUE and are used for a variety of
